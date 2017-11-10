@@ -5,7 +5,7 @@ import redis
 import logging
 
 redis_url = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
-rss_url = os.environ.get('URL', 'https://hnrss.org/newest?points=300')
+rss_url = os.environ.get('URL', 'https://hnrss.org/frontpage')
 logger = logging.getLogger('bot')
 logging.basicConfig(level=logging.DEBUG)
 
