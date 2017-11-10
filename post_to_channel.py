@@ -1,5 +1,4 @@
 import os
-    if not r.sismember('published_posts', text):
 import logging
 import asyncio
 import aiotg
