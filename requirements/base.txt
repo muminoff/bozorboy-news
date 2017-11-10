@@ -1,0 +1,4 @@
+aiotg
+aiohttp
+feedparser
+googletrans
