@@ -20,7 +20,7 @@ async def main():
 
     if not r.sismember('published_posts', text):
         logger.info('Publishing post {text} to channel...'.format(text=text))
-        await channel.send_text(text)
+        await channel.send_text(text, disable_web_page_preview=True)
         r.sadd('published_posts', text)
 
 loop = asyncio.get_event_loop()
