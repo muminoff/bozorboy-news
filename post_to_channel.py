@@ -15,9 +15,12 @@ logging.basicConfig(level=logging.DEBUG)
 
 async def main():
     r = redis.from_url(redis_url)
-    post = r.spop('posts')
+    post = r.spop('unpublished_posts')
+    text = post.decode('utf-8')
+
     logger.info('Publishing post {title} to channel...'.format(title=post))
-    await channel.send_text(post.decode('utf-8'))
+    await channel.send_text(text)
+    r.sadd('published_posts', text)
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())

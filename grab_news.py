@@ -25,8 +25,13 @@ def main():
 
         t = translator.translate(entry['title'], dest='uz', src='en')
         text = '{title}\n\n{link}'.format(title=t.text, link=entry['link'])
+
+        if r.sismember('published_posts', text):
+            logger.info('Post {text} already published, skipping...'.format(text=text))
+            continue
+
         logger.info('Saving post {text} to redis...'.format(text=text))
-        r.sadd('posts', text)
+        r.sadd('unpublished_posts', text)
 
 
 if __name__ == '__main__':
