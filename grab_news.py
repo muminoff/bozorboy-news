@@ -27,7 +27,9 @@ def main():
         text = '{title}\n\n{link}'.format(title=t.text, link=entry['link'])
 
         if r.sismember('published_posts', text):
-            logger.info('Post {text} already published, skipping...'.format(text=text))
+            logger.info(
+                'Post {text} already published, skipping...'.format(
+                    text=text))
             continue
 
         logger.info('Saving post {text} to redis...'.format(text=text))
