@@ -1,4 +1,5 @@
 import os
+    if not r.sismember('published_posts', text):
 import logging
 import asyncio
 import aiotg
@@ -18,7 +19,7 @@ async def main():
     post = r.spop('unpublished_posts')
     text = post.decode('utf-8')
 
-    logger.info('Publishing post {title} to channel...'.format(title=post))
+    logger.info('Publishing post {text} to channel...'.format(text=text))
     await channel.send_text(text)
     r.sadd('published_posts', text)
 
