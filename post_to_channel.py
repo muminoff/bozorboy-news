@@ -7,7 +7,7 @@ import redis
 api_token = os.environ.get('API_TOKEN')
 bot_name = os.environ.get('BOT_NAME')
 bot = aiotg.Bot(api_token=api_token, name=bot_name)
-channel = bot.channel(os.environ.get('CHANNEL_NAME', '@BozorvoyNews'))
+channel = bot.channel(os.environ.get('CHANNEL_NAME', '@BozorboyNews'))
 redis_url = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
 logger = logging.getLogger('bot')
 logging.basicConfig(level=logging.DEBUG)
