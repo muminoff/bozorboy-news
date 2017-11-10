@@ -1,4 +1,4 @@
-import os
+iFindUserIdFormmport os
 import logging
 import asyncio
 import aiotg
@@ -18,9 +18,10 @@ async def main():
     post = r.spop('unpublished_posts')
     text = post.decode('utf-8')
 
-    logger.info('Publishing post {text} to channel...'.format(text=text))
-    await channel.send_text(text)
-    r.sadd('published_posts', text)
+    if not r.sismember('published_posts', text):
+        logger.info('Publishing post {text} to channel...'.format(text=text))
+        await channel.send_text(text)
+        r.sadd('published_posts', text)
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
