@@ -2,3 +2,4 @@ aiotg
 aiohttp
 feedparser
 googletrans
+redis
