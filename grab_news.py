@@ -45,7 +45,7 @@ def main():
 
         t = translator.translate(entry['title'], dest='uz', src='en')
         link = shorten_url(entry['link'])
-        text = '{title}\n\n{link}'.format(title=t.text, link=link)
+        text = '{title} {link}'.format(title=t.text, link=link)
 
         if not r.sismember('published_posts', text):
             logger.info(text + '\n')
