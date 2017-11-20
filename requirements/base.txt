@@ -3,3 +3,4 @@ aiohttp
 feedparser
 googletrans
 redis
+requests
