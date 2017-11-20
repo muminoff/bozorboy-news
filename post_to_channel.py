@@ -1,4 +1,5 @@
 import os
+import sys
 import logging
 import asyncio
 import aiotg
@@ -16,6 +17,10 @@ logging.basicConfig(level=logging.DEBUG)
 async def main():
     r = redis.from_url(redis_url)
     post = r.spop('unpublished_posts')
+
+    if not post:
+        sys.exit(0)
+
     text = post.decode('utf-8')
 
     if not r.sismember('published_posts', text):
