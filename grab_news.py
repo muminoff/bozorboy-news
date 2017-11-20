@@ -44,7 +44,11 @@ def main():
             continue
 
         t = translator.translate(entry['title'], dest='uz', src='en')
+
         link = shorten_url(entry['link'])
+        if not link:
+            link = entry['link']
+
         text = '{title} {link}'.format(title=t.text, link=link)
 
         if not r.sismember('published_posts', text):
