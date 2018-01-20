@@ -6,7 +6,8 @@ import logging
 import requests
 
 redis_url = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
-rss_url = os.environ.get('URL', 'https://hnrss.org/frontpage')
+# rss_url = os.environ.get('URL', 'https://hnrss.org/frontpage')
+rss_url = os.environ.get('URL', 'https://hnrss.org/newest?points=1000')
 bitly_api_url = os.environ.get('BITLY_API_URL', 'https://api-ssl.bitly.com/v3/shorten')
 bitly_access_token = os.environ.get('BITLY_ACCESS_TOKEN')
 logger = logging.getLogger('bot')
